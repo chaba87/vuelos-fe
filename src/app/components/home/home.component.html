@@ -1,0 +1,58 @@
+<div class="horizontal-center vertical-center right">
+  <a class="pointer" href="javascript:void(0)" (click)="searchBook(searchBooking)" >Buscar reserva</a>
+</div>
+<div class="horizontal-center border-blue">
+  <div>
+    <input type="search" typeaheadOptionField="Name" [(ngModel)]="departure" [typeahead]="citiesDeparture"
+      [typeaheadAsync]="true" [typeaheadWaitMs]="500" class="form-control" placeholder="Lugar de salida"
+      (ngModelChange)="DepartureChange()" style="width: 10em; display: inline;" >
+    <input type="search" typeaheadOptionField="Name" [(ngModel)]="arrival" [typeahead]="citiesArrival"
+      [typeaheadAsync]="true" [typeaheadWaitMs]="500" class="form-control" placeholder="Lugar de destino"
+      (ngModelChange)="ArrivalChange()" style="margin-left: 2em; width: 10em; display: inline;"  >
+    <input type="date" [(ngModel)]="filter.DepartureDate" class="form-control"
+          style="margin-left: 2em; width: 11em; display: inline;">
+    <button type="button" class="btn btn-primary" (click)="searchFlights()" style="margin-left: 2em; display: inline;" >Buscar</button>
+  </div>
+  <div style="margin-top: 1em;">
+    <label [innerText]="error" style="color: red;" ></label>
+  </div>
+</div>
+
+<table class="table table-striped table-center" *ngIf="tableFlights && tableFlights.length > 0">
+  <thead>
+    <tr>
+      <th>Origen</th>
+      <th>Destino</th>
+      <th>Fecha</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let flight of tableFlights">
+      <td>{{flight.DepartureCity.Name}}</td>
+      <td>{{flight.ArrivalCity.Name}}</td>
+      <td>{{flight.DepartureDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+      <td><a class="pointer" href="javascript:void(0)" (click)="continue(flight)" >Continuar</a></td>
+    </tr>
+  </tbody>
+</table>
+<div class="horizontal-center" style="margin-top: 1em;">
+  <label [innerText]="errorSave" [style.color]="colorSave" ></label>
+</div>
+
+<ng-template #searchBooking>
+  <div class="modal-header" >
+    <h2 class="modal-title pull-left" >Buscar Reserva</h2>
+    <button type="button" class="close pull-right" arial-label="Close" (click)="dialogSearchBookingRef.hide()" >
+      <span aria-hidden="true" >&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+    <app-search-booking (searchDone)="hideModal()" ></app-search-booking>
+  </div>
+  <div class="modal-footer" >
+    <button type="button" class="btn btn-secondary" (click)="dialogSearchBookingRef.hide()" label="yes" >
+      Cerrar
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,9 @@
+<h4 class="horizontal-center vertical-center-title" >Ingrese sus datos para completar la reserva</h4>
+<div class="horizontal-center border-blue" >
+  <input type="text" [(ngModel)]="booking.Passenger.Name" class="form-control" placeholder="Nombre" >
+  <input type="text" [(ngModel)]="booking.Passenger.LastName" class="form-control" style="margin-top: 1em;" placeholder="Apellido" >
+  <input type="text" [(ngModel)]="booking.Passenger.Email" class="form-control" style="margin-top: 1em;" placeholder="Email" >
+  <input type="text" [(ngModel)]="booking.Passenger.CellNumber" class="form-control" style="margin-top: 1em;" placeholder="Teléfono" >
+  <button type="button" class="btn btn-primary" style="margin-left: 30em; margin-top: 1em; display: inline;" (click)="save()" >Guardar</button>
+  <button type="button" class="btn btn-secondary" style="margin-left: 1em; margin-top: 1em; display: inline;" (click)="back()" >Volver</button>
+</div>

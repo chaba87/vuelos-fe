@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.horizontal-center {
+  margin: auto;
+  width: 46%;
+  padding: 10px;
+}
+
+.vertical-center {
+  margin-top: 12em;
+}
+
+.vertical-center-title {
+  margin-top: 5em;
+}
+
+.border-blue {
+  border: 3px solid blue;
+}
+
+.table-center {
+  margin: auto;
+  margin-top: 2em;
+  width: 50%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.right {
+  margin-left: 65%;
+}

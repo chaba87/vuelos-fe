@@ -1,0 +1,18 @@
+<h4 class="horizontal-center vertical-center-title" >Datos de la reserva</h4>
+<h6 class="horizontal-center" >Puede editar sus datos de contacto</h6>
+<div class="horizontal-center border-blue" >
+  <label style="font-size: 15pt; font-weight: bold;">Número de vuelo:&nbsp;</label>
+  <label style="font-size: 15pt;" [innerHTML]="flight.FlightNumber" ></label><br>
+  <label style="font-size: 15pt; font-weight: bold;">Origen:&nbsp;</label>
+  <label style="font-size: 15pt;" [innerHTML]="flight.DepartureCity.IATACode" ></label><br>
+  <label style="font-size: 15pt; font-weight: bold;">Destino:&nbsp;</label>
+  <label style="font-size: 15pt;" [innerHTML]="flight.ArrivalCity.IATACode" ></label><br>
+  <label style="font-size: 15pt; font-weight: bold;">Fecha:&nbsp;</label>
+  <label style="font-size: 15pt;" [innerHTML]="flight.DepartureDate | date: 'dd/MM/yyyy HH:mm'" ></label><br>
+  <input type="text" [(ngModel)]="booking.Passenger.Name" class="form-control" style="margin-top: 1em;" placeholder="Nombre" >
+  <input type="text" [(ngModel)]="booking.Passenger.Lastname" class="form-control" style="margin-top: 1em;" placeholder="Apellido" >
+  <input type="text" [(ngModel)]="booking.Passenger.Email" class="form-control" style="margin-top: 1em;" placeholder="Email" >
+  <input type="text" [(ngModel)]="booking.Passenger.CellNumber" class="form-control" style="margin-top: 1em;" placeholder="Teléfono" >
+  <button type="button" class="btn btn-primary" style="margin-left: 30em; margin-top: 1em; display: inline;" (click)="update()" >Actualizar</button>
+  <button type="button" class="btn btn-secondary" style="margin-left: 1em; margin-top: 1em; display: inline;" (click)="back()" >Volver</button>
+</div>
